@@ -1,9 +1,6 @@
-<!-- Begin Jekyll SEO tag v{{ seo_tag.version }} -->
 {% if seo_tag.title? %}
   <title>{{ seo_tag.title }}</title>
 {% endif %}
-
-<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
 
 {% if seo_tag.page_title %}
   <meta property="og:title" content="{{ seo_tag.page_title }}" />
@@ -109,8 +106,8 @@
   <meta name="google-site-verification" content="{{ site.google_site_verification }}" />
 {% endif %}
 
-<script type="application/ld+json">
-  {{ seo_tag.json_ld | jsonify }}
-</script>
-
-<!-- End Jekyll SEO tag -->
+{% if site.seo %}
+  <script type="application/ld+json">
+    {{ seo_tag.json_ld | jsonify }}
+  </script>
+{% endif %}
