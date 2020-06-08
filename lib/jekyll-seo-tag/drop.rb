@@ -138,6 +138,10 @@ module Jekyll
         end
       end
 
+      def json_ld_raw
+        page_seo["json_ld_raw"]
+      end
+
       def links
         @links ||= begin
           if page_seo["links"]
