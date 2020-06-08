@@ -14,6 +14,7 @@ module Jekyll
       def_delegator :page_drop, :links,          :sameAs
       def_delegator :page_drop, :logo,           :logo
       def_delegator :page_drop, :type,           :type
+      def_delegator :page_drop, :json_ld_raw,    :json_ld_raw
 
       # Expose #type and #logo as private methods and #@type as a public method
       alias_method :"@type", :type
@@ -80,6 +81,8 @@ module Jekyll
       private :main_entity
 
       def to_json
+        return json_ld_raw.to_json if json_ld_raw
+
         to_h.reject { |_k, v| v.nil? }.to_json
       end
 
